@@ -9,13 +9,13 @@ public class ModelDocuments
 
     public static string FactoryHtml(TypeDocument typeDocument)
     {
-        var lStrFile = System.IO.File.ReadAllLines(".\\Docs\\Header.html");
+        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
 
         switch (typeDocument)
         {
             case TypeDocument.Agreement:
-                lStrFile = System.IO.File.ReadAllLines(".\\Docs\\Contrato.html");
+                lStrFile = System.IO.File.ReadAllLines(".//Docs//Agreement.html");
                 break;
             default:
                 throw new NotImplementedException();

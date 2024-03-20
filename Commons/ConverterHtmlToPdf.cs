@@ -1,6 +1,6 @@
 ﻿
+using DinkToPdf;
 using Microsoft.AspNetCore.Mvc;
-using SelectPdf;
 
 namespace ConvertDoc.Commons;
 
@@ -10,25 +10,33 @@ public class ConverterHtmlToPdf
     {
 
         FileStream lFileStream = null;
-        const string LCONS_PATH_FILE = ".\\Temp\\pdfTemp.pdf";
+        const string LCONS_PATH_FILE = ".//Temp//pdfTemp.pdf";
 
         try
         {
-            HtmlToPdf converter = new HtmlToPdf();
-            converter.Options.PdfPageSize = PdfPageSize.A4;
-            converter.Options.PdfPageOrientation = PdfPageOrientation.Portrait;
-            converter.Options.MarginLeft = 15;
-            converter.Options.MarginRight = 15;
-            converter.Options.MarginTop = 15;
-            converter.Options.MarginBottom = 15;
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                ColorMode = ColorMode.Color,
+                Orientation = Orientation.Portrait,
+                PaperSize = PaperKind.A4,
+                Out = LCONS_PATH_FILE,
+                },
+                
+                Objects = { 
+                            new ObjectSettings() {
+                            PagesCount = true,
+                            HtmlContent = pStrHtml,
+                            WebSettings = { DefaultEncoding = "utf-8" },
+                            //HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
+                            }
+                           }
+            };
 
-            PdfDocument doc = converter.ConvertHtmlString(pStrHtml);
-
-            doc.Save(LCONS_PATH_FILE);
-            doc.Close();
+            var converter = new BasicConverter(new PdfTools());
+            converter.Convert(doc);
 
             lFileStream = new FileStream(LCONS_PATH_FILE, FileMode.Open);
-
             return new FileStreamResult(lFileStream, "application/pdf");
         }
         catch(Exception ex) 
