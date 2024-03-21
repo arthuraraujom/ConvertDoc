@@ -18,7 +18,7 @@ public class ModelDocuments
             paths += ";" + item.Remove(0, caminho.Length);
         }
 
-        throw new Exception(Environment.CurrentDirectory);
+        throw new Exception(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
         throw new Exception(paths);
        
         var lStrFile = System.IO.File.ReadAllLines("..//src//Docs//Header.html");
