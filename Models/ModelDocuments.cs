@@ -9,10 +9,9 @@ public class ModelDocuments
 
     public static string FactoryHtml(TypeDocument typeDocument)
     {
-        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
-        var lStrHtml = Utils.StringArrayToString(lStrFile);
 
-        var caminho = ".//" ;
+
+        var caminho = ".//";
         var paths = "";
         foreach (string item in Directory.GetDirectories(caminho))
         {
@@ -20,6 +19,11 @@ public class ModelDocuments
         }
 
         throw new Exception(paths);
+
+        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
+        var lStrHtml = Utils.StringArrayToString(lStrFile);
+
+       
 
         /*File.Exists(Environment.CurrentDirectory+ ".//Docs//Header.html");
         var lStrPath = Environment.CurrentDirectory;
