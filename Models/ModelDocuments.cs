@@ -11,7 +11,7 @@ public class ModelDocuments
     {
 
 
-        var caminho = "..//home//app//";
+        /*var caminho = "..//home//app//";
         var paths = "";
         foreach (string item in Directory.GetDirectories(caminho))
         {
@@ -19,9 +19,9 @@ public class ModelDocuments
         }
 
         //throw new Exception(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
-        throw new Exception(paths);
+        throw new Exception(paths);*/
        
-        var lStrFile = System.IO.File.ReadAllLines("..//src//Docs//Header.html");
+        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
 
        
