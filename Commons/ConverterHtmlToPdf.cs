@@ -12,6 +12,8 @@ public class ConverterHtmlToPdf
         FileStream lFileStream = null;
         const string LCONS_PATH_FILE = ".//Temp//pdfTemp.pdf";
 
+        var lStr = "0";
+
         try
         {
             var doc = new HtmlToPdfDocument()
@@ -33,15 +35,17 @@ public class ConverterHtmlToPdf
                            }
             };
 
+            lStr = "1";
             var converter = new BasicConverter(new PdfTools());
             converter.Convert(doc);
 
+            lStr = "2";
             lFileStream = new FileStream(LCONS_PATH_FILE, FileMode.Open);
             return new FileStreamResult(lFileStream, "application/pdf");
         }
         catch(Exception ex) 
         {
-            throw new Exception("Não foi possível gerar o PDF. Erro: " + ex.Message);
+            throw new Exception("Não foi possível gerar o PDF. Erro: "+ lStr + " - " + ex.Message);
         }
         finally
         {
