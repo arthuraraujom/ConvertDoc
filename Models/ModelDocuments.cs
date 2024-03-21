@@ -44,7 +44,7 @@ public class ModelDocuments
 
         foreach (var item in pAgreement.items)
         {
-            lStrItems += "<li>" + item.name + ". Quantidade " + item.amount.ToString() + ".</li>";
+            lStrItems += "<li>" + item.name + ". Quantidade: " + item.amount.ToString() + ".</li>";
             lDblAmount = lDblAmount + (item.unit_value * item.amount);
         }
 
