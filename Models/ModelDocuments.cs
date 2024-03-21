@@ -18,6 +18,17 @@ public class ModelDocuments
             paths += ";" + item.Remove(0, caminho.Length);
         }
 
+        caminho += "   >   ";
+                
+
+        caminho = ".//runtimes";
+        foreach (string item in Directory.GetDirectories(caminho))
+        {
+            paths += ";" + item.Remove(0, caminho.Length);
+        }
+
+
+
         throw new Exception(paths);
 
         var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");

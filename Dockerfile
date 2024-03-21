@@ -27,5 +27,5 @@ RUN dotnet publish "./ConvertDoc.csproj" -c $BUILD_CONFIGURATION -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY "Docs/Header.html" /app/
+COPY Docs/*.* /app/Docs
 ENTRYPOINT ["dotnet", "ConvertDoc.dll"]
