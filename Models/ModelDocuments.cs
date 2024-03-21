@@ -11,7 +11,7 @@ public class ModelDocuments
     {
 
 
-        var caminho = "..//App";
+        var caminho = ".//App";
         var paths = "";
         foreach (string item in Directory.GetDirectories(caminho))
         {
