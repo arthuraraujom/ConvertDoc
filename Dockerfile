@@ -8,7 +8,7 @@ RUN apt-get install -y libc6-dev
 RUN ln -s /usr/lib/libgdiplus.so/usr/lib/gdiplus.dll
 USER app
 WORKDIR /app
-COPY Docs/ /Docs/
+COPY Docs/*.html /Docs/
 COPY libwkhtmltox.dll libwkhtmltox.dll
 COPY libwkhtmltox.dylib libwkhtmltox.dylib
 COPY libwkhtmltox.so libwkhtmltox.so
