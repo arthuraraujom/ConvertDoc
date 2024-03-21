@@ -9,8 +9,24 @@ public class ModelDocuments
 
     public static string FactoryHtml(TypeDocument typeDocument)
     {
-        var lStrFile = System.IO.File.ReadAllLines("Docs//Header.html");
+        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
+
+        var caminho = ".//" ;
+        var paths = "";
+        foreach (string item in Directory.GetDirectories(caminho))
+        {
+            paths += ";" + item.Remove(0, caminho.Length);
+        }
+
+        throw new Exception(paths);
+
+        /*File.Exists(Environment.CurrentDirectory+ ".//Docs//Header.html");
+        var lStrPath = Environment.CurrentDirectory;
+        lStrPath = Environment.ProcessPath;
+        lStrPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();*/
+
+
 
         switch (typeDocument)
         {
