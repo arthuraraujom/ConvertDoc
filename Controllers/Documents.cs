@@ -15,10 +15,19 @@ public class Documents : ControllerBase
     [Route("agreement")]
     public IActionResult Agreement(DTOAgreement agreement)
     {
-        var lStrHtml = ModelDocuments.FactoryHtml(TypeDocument.Agreement);
-        lStrHtml = ModelDocuments.LoadDataHtml(agreement, lStrHtml);
+        try
+        {
+            var lStrHtml = ModelDocuments.FactoryHtml(TypeDocument.Agreement);
+            lStrHtml = ModelDocuments.LoadDataHtml(agreement, lStrHtml);
 
-        return ConverterHtmlToPdf.Convert(lStrHtml);
+            return ConverterHtmlToPdf.Convert(lStrHtml);
+
+        }
+        catch (Exception ep) 
+        {
+            return BadRequest(ep.Message);
+        }
+        
     }
 
     [HttpGet]
