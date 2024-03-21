@@ -18,16 +18,6 @@ public class ModelDocuments
             paths += ";" + item.Remove(0, caminho.Length);
         }
 
-        paths += "   >   ";
-                
-
-        caminho = "..//src";
-        foreach (string item in Directory.GetDirectories(caminho))
-        {
-            paths += ";" + item.Remove(0, caminho.Length);
-        }
-
-
 
         throw new Exception(paths);
 
