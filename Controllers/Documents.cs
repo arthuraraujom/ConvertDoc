@@ -21,5 +21,15 @@ public class Documents : ControllerBase
         return ConverterHtmlToPdf.Convert(lStrHtml);
     }
 
+    [HttpGet]
+    [Route("teste")]
+    public IActionResult Teste()
+    {
+        DTOAgreement agreement = new DTOAgreement();
+        agreement.number = "001";
+
+
+        return Ok(agreement);
+    }
 
 }
