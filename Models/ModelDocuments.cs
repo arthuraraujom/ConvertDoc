@@ -9,7 +9,7 @@ public class ModelDocuments
 
     public static string FactoryHtml(TypeDocument typeDocument)
     {
-        var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
+        var lStrFile = System.IO.File.ReadAllLines("Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
 
         switch (typeDocument)
