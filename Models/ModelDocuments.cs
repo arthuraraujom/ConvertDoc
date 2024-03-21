@@ -11,17 +11,17 @@ public class ModelDocuments
     {
 
 
-        /*var caminho = ".//";
+        var caminho = "..//";
         var paths = "";
         foreach (string item in Directory.GetDirectories(caminho))
         {
             paths += ";" + item.Remove(0, caminho.Length);
         }
 
-        caminho += "   >   ";
+        paths += "   >   ";
                 
 
-        caminho = ".//runtimes";
+        caminho = "..//src";
         foreach (string item in Directory.GetDirectories(caminho))
         {
             paths += ";" + item.Remove(0, caminho.Length);
@@ -29,7 +29,7 @@ public class ModelDocuments
 
 
 
-        throw new Exception(paths);*/
+        throw new Exception(paths);
 
         var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
