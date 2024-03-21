@@ -8,30 +8,9 @@ public class ModelDocuments
 {
 
     public static string FactoryHtml(TypeDocument typeDocument)
-    {
-
-
-        /*var caminho = "..//home//app//";
-        var paths = "";
-        foreach (string item in Directory.GetDirectories(caminho))
-        {
-            paths += ";" + item.Remove(0, caminho.Length);
-        }
-
-        //throw new Exception(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
-        throw new Exception(paths);*/
-       
+    {  
         var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
-
-       
-
-        /*File.Exists(Environment.CurrentDirectory+ ".//Docs//Header.html");
-        var lStrPath = Environment.CurrentDirectory;
-        lStrPath = Environment.ProcessPath;
-        lStrPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();*/
-
-
 
         switch (typeDocument)
         {
@@ -44,7 +23,6 @@ public class ModelDocuments
         }
 
         var lStrDocument = Utils.StringArrayToString(lStrFile);
-
         lStrHtml = lStrHtml.Replace("{HEADER_DOCUMENTO}", lStrDocument);
 
         return lStrHtml;

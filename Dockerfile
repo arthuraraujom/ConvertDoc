@@ -8,7 +8,10 @@ RUN apt-get install -y libc6-dev
 RUN ln -s /usr/lib/libgdiplus.so/usr/lib/gdiplus.dll
 USER app
 WORKDIR /app
-COPY Docs/Header.html Docs/Header.html
+COPY Docs/ /Docs/
+COPY libwkhtmltox.dll
+COPY libwkhtmltox.dylib
+COPY libwkhtmltox.so
 EXPOSE 8080
 EXPOSE 8081
 
