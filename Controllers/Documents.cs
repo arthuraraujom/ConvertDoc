@@ -26,8 +26,7 @@ public class Documents : ControllerBase
         catch (Exception ep) 
         {
             return BadRequest(ep.Message);
-        }
-        
+        }        
     }
 
     [HttpGet]
@@ -36,7 +35,6 @@ public class Documents : ControllerBase
     {
         DTOAgreement agreement = new DTOAgreement();
         agreement.number = "001";
-
 
         return Ok(agreement);
     }
