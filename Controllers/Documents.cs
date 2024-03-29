@@ -28,15 +28,4 @@ public class Documents : ControllerBase
             return BadRequest(ep.Message);
         }        
     }
-
-    [HttpGet]
-    [Route("teste")]
-    public IActionResult Teste()
-    {
-        DTOAgreement agreement = new DTOAgreement();
-        agreement.number = "001";
-
-        return Ok(agreement);
-    }
-
 }
