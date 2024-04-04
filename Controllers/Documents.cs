@@ -36,7 +36,7 @@ public class Documents : ControllerBase
         try
         {
             var lStrHtml = ModelDocuments.FactoryHtml(TypeDocument.Budget);
-            //lStrHtml = ModelDocuments.LoadDataHtmlBudget(budget, lStrHtml);
+            lStrHtml = ModelDocuments.LoadDataHtmlBudget(budget, lStrHtml);
 
             return ConverterHtmlToPdf.Convert(lStrHtml);
 
