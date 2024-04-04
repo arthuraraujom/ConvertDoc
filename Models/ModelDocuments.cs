@@ -12,11 +12,17 @@ public class ModelDocuments
         var lStrFile = System.IO.File.ReadAllLines(".//Docs//Header.html");
         var lStrHtml = Utils.StringArrayToString(lStrFile);
 
+        var lStrPathDocs = ".//Docs//";
+
         switch (typeDocument)
         {
             case TypeDocument.Agreement:
-                lStrFile = System.IO.File.ReadAllLines(".//Docs//Agreement.html");
+                lStrFile = System.IO.File.ReadAllLines(lStrPathDocs+"Agreement.html");
                 break;
+
+            case TypeDocument.Budget:
+                lStrFile = System.IO.File.ReadAllLines(lStrPathDocs+"Budget.html");  
+                break; 
             default:
                 throw new NotImplementedException();
                 break;
@@ -28,7 +34,7 @@ public class ModelDocuments
         return lStrHtml;
     }
 
-    public static string LoadDataHtml(DTOAgreement pAgreement, string pStrHtml)
+    public static string LoadDataHtmlAgreement(DTOAgreement pAgreement, string pStrHtml)
     {
         var lStrHtml = pStrHtml.Replace("{CONTRATO_NUMERO}", pAgreement.number);
 
@@ -58,6 +64,10 @@ public class ModelDocuments
         return lStrHtml;
 
     }
+
+   // public static string LoadDataHtmlBudget(DTOBudget pBudget, string pStrHtml){
+
+    //}
 
 
 }

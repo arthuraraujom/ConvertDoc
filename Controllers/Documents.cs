@@ -18,7 +18,7 @@ public class Documents : ControllerBase
         try
         {
             var lStrHtml = ModelDocuments.FactoryHtml(TypeDocument.Agreement);
-            lStrHtml = ModelDocuments.LoadDataHtml(agreement, lStrHtml);
+            lStrHtml = ModelDocuments.LoadDataHtmlAgreement(agreement, lStrHtml);
 
             return ConverterHtmlToPdf.Convert(lStrHtml);
 
@@ -28,4 +28,23 @@ public class Documents : ControllerBase
             return BadRequest(ep.Message);
         }        
     }
+
+    [HttpPost]
+    [Route("budget")]
+    public IActionResult Budget(DTOBudget budget)
+    {
+        try
+        {
+            var lStrHtml = ModelDocuments.FactoryHtml(TypeDocument.Budget);
+            //lStrHtml = ModelDocuments.LoadDataHtmlBudget(budget, lStrHtml);
+
+            return ConverterHtmlToPdf.Convert(lStrHtml);
+
+        }
+        catch (Exception ep) 
+        {
+            return BadRequest(ep.Message);
+        }        
+    }
+
 }
