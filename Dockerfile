@@ -15,7 +15,7 @@ COPY libwkhtmltox.so libwkhtmltox.so
 #EXPOSE 8080
 #EXPOSE 8081
 EXPOSE 5000 
-ENV ASPNETCORE_URLS=http://*:5000
+ENV ASPNETCORE_URLS=http://*:8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
