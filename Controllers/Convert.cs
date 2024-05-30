@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ConvertDoc.Commons;
 using System.IO;
+using DinkToPdf.Contracts;
 
 namespace ConvertDoc.Controllers;
 
@@ -8,6 +9,12 @@ namespace ConvertDoc.Controllers;
 [Route("api/v1.0/convert")]
 public class Convert : ControllerBase
 {
+   private readonly IConverter _converter;
+
+    public Convert(IConverter converter){
+        this._converter = converter;
+    }
+
 
     [HttpGet]
     [Route("htmlToPdf")]
@@ -19,7 +26,7 @@ public class Convert : ControllerBase
             return BadRequest("O parametro HTML está vazio.");
         }
 
-        return ConverterHtmlToPdf.Convert(pHtml);
+        return ConverterHtmlToPdf.Convert(_converter, pHtml);
     }
 
 }

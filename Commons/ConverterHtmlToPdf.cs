@@ -1,12 +1,13 @@
 ﻿
 using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConvertDoc.Commons;
 
 public class ConverterHtmlToPdf
 {
-    public static FileStreamResult Convert(string pStrHtml)
+    public static FileStreamResult Convert(IConverter pConverter, string pStrHtml)
     {
 
         try
@@ -29,10 +30,8 @@ public class ConverterHtmlToPdf
                             }
                            }
             };
-
-            var lBasicConverter = new BasicConverter(new PdfTools());
-        
-            var lPdf = lBasicConverter.Convert(lDoc);
+            
+            var lPdf = pConverter.Convert(lDoc);
             var lMemStream = new MemoryStream(lPdf);
                 
             return new FileStreamResult(lMemStream, "application/pdf");
